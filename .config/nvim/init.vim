@@ -1,9 +1,10 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'logico/typewriter-vim'
 Plug 'scrooloose/nerdtree'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -23,15 +24,19 @@ set number
 set mouse=a
 filetype plugin on
 
-" Color scheme
+" Color typewriter
 colorscheme typewriter-night
-" colorscheme typewriter
 
+" The silver surfer
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Airline
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline_theme='typewriter'
 
 " Nerdtree
 nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Nerdcommenter
 let g:NERDSpaceDelims = 1
